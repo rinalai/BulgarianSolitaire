@@ -9,7 +9,7 @@ There are two representations in this repository:
 -The java files will simulate one game of Bulgarian Solitaire in the terminal
 -The .r file simulates a user-inputed vector of number of games of Bulgarian Solitaire to trial, and outputs a corresponding bar plot of rounds it takes to terminate for each run.
 
-#BulgarianSolitaireSimulator.java
+##BulgarianSolitaireSimulator.java
 simulates a game of Bulgarian Solitaire
 * input -u as program argument to input a custom user configuration (initiates a random configuration if this is missing)
 * input -s as program argument to run each play by pressing enter
