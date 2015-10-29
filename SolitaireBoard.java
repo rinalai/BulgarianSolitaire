@@ -1,8 +1,3 @@
-// Name: Carrina Lai
-// USC loginid: carrinal
-// USCID 6603835042
-// CSCI455 PA2
-// Fall 2015
 
 /*
    class SolitaireBoard
