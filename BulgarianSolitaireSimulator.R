@@ -12,7 +12,6 @@
 n = numTrials = c(10,100,1000,10000) 
 =======
 n = numTrials = c(100,500,1000,5000)
->>>>>>> 30abcd98c6379fe18e0323b01b8dce278eb8044b
 #number of final piles of cards
 p = numFinalPiles = 9 
 #######################################
@@ -24,7 +23,6 @@ maxTrialsPossible = p^2-p
 # see Igusa and Etienne (1984 paper) for proof that for DB = maximum number of moves needed to reach a cycle,
 #DB(n) ≤ k^2 − k whenever n ≤ 1 + 2 + · · · + k, and 
 #equality holds when n = 1 + 2 + · · ·+ k
->>>>>>> 30abcd98c6379fe18e0323b01b8dce278eb8044b
 roundsTaken = rep(0,maxTrialsPossible)
 
 
@@ -134,7 +132,6 @@ for (test in 1:length(numTrials)) {
           )
   text(results$trials-.5, results[,test+1]+.3*numTrials[test]/100, labels = results[,test+1], cex = .5)
   axis(side = 1, at = seq(1,maxTrialsPossible+5, 5)+.5,labels = seq(0,maxTrialsPossible+5, 5), cex = .5)
->>>>>>> 30abcd98c6379fe18e0323b01b8dce278eb8044b
 }
 
 
