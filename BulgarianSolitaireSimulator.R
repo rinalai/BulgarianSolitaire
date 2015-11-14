@@ -8,13 +8,16 @@
 
 ######## change inputs here ###########
 #vector of the number of trials requested
-n = numTrials = c(10,100,1000,10000) 
+n = numTrials = c(100,500,1000,5000)
 #number of final piles of cards
 p = numFinalPiles = 9 
 #######################################
 
 cardTotal = numFinalPiles * (numFinalPiles + 1) /2
 maxTrialsPossible = p^2-p
+# see Igusa and Etienne (1984 paper) for proof that for DB = maximum number of moves needed to reach a cycle,
+#DB(n) ≤ k^2 − k whenever n ≤ 1 + 2 + · · · + k, and 
+#equality holds when n = 1 + 2 + · · ·+ k
 roundsTaken = rep(0,maxTrialsPossible)
 
 
@@ -99,11 +102,24 @@ roundsTakenVector = function(numTrials, numFinalPiles) {
 #==================================================
 
 results = data.frame(matrix(NA, nrow = maxTrialsPossible, ncol = length(numTrials)))
+results[,1] = c(1:maxTrialsPossible)
+colnames(results)[1] = "trials"
 par(mfrow = c(2,length(numTrials)/2))
 for (test in 1:length(numTrials)) {
-  results[,test] = roundsTakenVector(numTrials[test], numFinalPiles)
-  colnames(results)[test] = paste(numTrials[test], "trials")
-  barplot(results[,test], main=paste(numTrials[test], "trials"))
+  results[,test+1] = roundsTakenVector(numTrials[test], numFinalPiles)
+  colnames(results)[test+1] = paste(numTrials[test], "trials")
+  b = barplot(results[,test+1], 
+          main=paste(numTrials[test], "trials"),
+          #xlim = round(seq(0,maxTrialsPossible, maxTrialsPossible/10)))
+          xlim = c(0,maxTrialsPossible),
+          ylim = c(0,max(results[,test+1])+numTrials[test]/100+5),
+          xlab = "# rounds to terminate",
+          ylab = "# trials that terminated in # rounds",
+          space = 0,
+          width = 1
+          )
+  text(results$trials-.5, results[,test+1]+.3*numTrials[test]/100, labels = results[,test+1], cex = .5)
+  axis(side = 1, at = seq(1,maxTrialsPossible+5, 5)+.5,labels = seq(0,maxTrialsPossible+5, 5), cex = .5)
 }
 
 
