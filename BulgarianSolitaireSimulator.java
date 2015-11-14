@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 // Name: Carrina Lai
 // USC loginid: carrinal
 // USCID 6603835042
 // CSCI455 PA2
 // Fall 2015
+=======
+>>>>>>> 30abcd98c6379fe18e0323b01b8dce278eb8044b
 
 /**
  * Simulates playing a game of Bulgarian Solitaire.
